@@ -37,6 +37,15 @@ public class ChessMatch {
 		
 	}
 	
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+		
+		Position position = sourcePosition.toPosition();
+		
+		validateSourcePosition(position);
+		
+		return board.piece(position).possibleMoves();
+	}
+	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		
 		Position source = sourcePosition.toPosition();
@@ -94,7 +103,7 @@ public class ChessMatch {
         placeNewPiece('g', 1, new Knight(board, Color.WHITE));
         placeNewPiece('c', 1, new Bishop(board, Color.WHITE));
         placeNewPiece('f', 1, new Bishop(board, Color.WHITE));
-        placeNewPiece('a', 2, new Pawn(board, Color.WHITE));
+        //placeNewPiece('a', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('b', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('c', 2, new Pawn(board, Color.WHITE));
         placeNewPiece('d', 2, new Pawn(board, Color.WHITE));
