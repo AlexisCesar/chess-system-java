@@ -100,9 +100,9 @@ public class ChessMatch {
 		
 		if(testCheckMate(opponent(currentPlayer))) {
 			checkMate = true;
+		} else {
+			nextTurn();
 		}
-		
-		nextTurn();
 		
 		return (ChessPiece) capturedPiece;
 		
@@ -167,7 +167,7 @@ public class ChessMatch {
 	
 	private void nextTurn() {
 		turn++;
-		currentPlayer = currentPlayer == Color.WHITE ? Color.BLACK : Color.WHITE;
+		currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
 	}
 	
 	private Color opponent(Color color) {
@@ -274,6 +274,7 @@ public class ChessMatch {
         placeNewPiece('f', 7, new Pawn(board, Color.BLACK));
         placeNewPiece('g', 7, new Pawn(board, Color.BLACK));
         placeNewPiece('h', 7, new Pawn(board, Color.BLACK));
+        
         
 		
 	}
