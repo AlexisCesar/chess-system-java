@@ -1,5 +1,6 @@
 package application;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -46,11 +47,23 @@ public class Program {
 				if(captured != null) {
 					capturedPieces.add(captured);
 				}
+				
+				if(chessMatch.getPromoted() != null) {
+					System.out.print("Choose a promotion to your Pawn [B/N/R/Q]: ");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
+				}
 			
 			} catch(ChessException e) {
 				System.out.println("Error: " + e.getMessage());
 				sc.nextLine();
 			} catch(InputMismatchException e) {
+				System.out.println("Error: " + e.getMessage());
+				sc.nextLine();
+			} catch(InvalidParameterException e) {
+				System.out.println("Error: " + e.getMessage());
+				sc.nextLine();
+			} catch(IllegalStateException e) {
 				System.out.println("Error: " + e.getMessage());
 				sc.nextLine();
 			}
