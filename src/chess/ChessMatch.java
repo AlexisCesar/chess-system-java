@@ -1,6 +1,5 @@
 package chess;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -142,7 +141,7 @@ public class ChessMatch {
 			throw new IllegalStateException("There is no piece to be promoted");
 		}
 		if(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-			throw new InvalidParameterException("Invalid piece type for promotion");
+			return promoted;
 		}
 		
 		Position p = promoted.getChessPosition().toPosition();
@@ -397,7 +396,7 @@ public class ChessMatch {
         placeNewPiece('g', 8, new Knight(board, Color.BLACK));
         placeNewPiece('c', 8, new Bishop(board, Color.BLACK));
         placeNewPiece('f', 8, new Bishop(board, Color.BLACK));
-        placeNewPiece('a', 7, new Pawn(board, Color.WHITE, this));
+        placeNewPiece('a', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('b', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('c', 7, new Pawn(board, Color.BLACK, this));
         placeNewPiece('d', 7, new Pawn(board, Color.BLACK, this));
